@@ -118,6 +118,7 @@ fn main() {
                     "proto/dd_trace.proto",
                     "proto/google/pubsub/v1/pubsub.proto",
                     "proto/vector.proto",
+                    "proto/opentelemetry/proto/collector/logs/v1/log_service.proto"
                 ],
                 &["proto/", "lib/vector-core/proto/"],
             )
