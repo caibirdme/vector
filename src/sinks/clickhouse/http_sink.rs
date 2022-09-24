@@ -21,7 +21,7 @@ use crate::{
     tls::TlsSettings,
 };
 
-pub(crate) async fn build_http_sink(
+pub(super) async fn build_http_sink(
     cfg: &ClickhouseConfig,
     cx: SinkContext,
 ) -> crate::Result<(VectorSink, Healthcheck)> {

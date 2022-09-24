@@ -235,6 +235,7 @@ bytesize = { version = "1.1.0", default-features = false }
 chrono = { version = "0.4.19", default-features = false, features = ["serde"] }
 cidr-utils = { version = "0.5.7", default-features = false }
 clap = { version = "3.2.21", default-features = false, features = ["derive", "env", "std"] }
+clickhouse-rs = { version = "1.0.0-alpha.1", default-features = false, features = ["tokio_io", "tls"], optional = true}
 colored = { version = "2.0.0", default-features = false }
 csv = { version = "1.1", default-features = false }
 derivative = { version = "2.2.0", default-features = false }
@@ -653,7 +654,7 @@ sinks-azure_blob = ["dep:azure_core", "dep:azure_identity", "dep:azure_storage",
 sinks-azure_monitor_logs = []
 sinks-blackhole = []
 sinks-chronicle = []
-sinks-clickhouse = []
+sinks-clickhouse = ["dep:clickhouse-rs"]
 sinks-console = []
 sinks-datadog_archives = ["sinks-aws_s3", "sinks-azure_blob", "sinks-gcp"]
 sinks-datadog_events = []

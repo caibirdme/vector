@@ -1531,6 +1531,16 @@ dependencies = [
 
 [[package]]
 name = "chrono-tz"
+version = "0.5.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2554a3155fec064362507487171dcc4edc3df60cb10f3a1fb10ed8094822b120"
+dependencies = [
+ "chrono",
+ "parse-zoneinfo",
+]
+
+[[package]]
+name = "chrono-tz"
 version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "29c39203181991a7dd4343b8005bd804e7a9a37afb8ac070e43771e8c820bbde"
@@ -1654,6 +1664,43 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "87eba3c8c7f42ef17f6c659fc7416d0f4758cd3e58861ee63c5fa4a4dde649e4"
 dependencies = [
  "os_str_bytes",
+]
+
+[[package]]
+name = "clickhouse-rs"
+version = "1.0.0-alpha.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "41edeaeac73a2f3c39357e5dd42a08c2d41fbc5b85c35a76879dc10d87128010"
+dependencies = [
+ "byteorder",
+ "chrono",
+ "chrono-tz 0.5.3",
+ "clickhouse-rs-cityhash-sys",
+ "combine 4.6.4",
+ "crossbeam",
+ "futures-core",
+ "futures-sink",
+ "futures-util",
+ "hostname",
+ "lazy_static",
+ "log",
+ "lz4",
+ "native-tls",
+ "pin-project",
+ "thiserror",
+ "tokio",
+ "tokio-native-tls",
+ "url",
+ "uuid 0.8.2",
+]
+
+[[package]]
+name = "clickhouse-rs-cityhash-sys"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4baf9d4700a28d6cb600e17ed6ae2b43298a5245f1f76b4eab63027ebfd592b9"
+dependencies = [
+ "cc",
 ]
 
 [[package]]
@@ -1920,6 +1967,20 @@ checksum = "6b50826342786a51a89e2da3a28f1c32b06e387201bc2d19791f622c673706b1"
 dependencies = [
  "cast",
  "itertools 0.10.4",
+]
+
+[[package]]
+name = "crossbeam"
+version = "0.8.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2801af0d36612ae591caa9568261fddce32ce6e08a7275ea334a06a4ad021a2c"
+dependencies = [
+ "cfg-if",
+ "crossbeam-channel",
+ "crossbeam-deque",
+ "crossbeam-epoch",
+ "crossbeam-queue",
+ "crossbeam-utils",
 ]
 
 [[package]]
@@ -2199,7 +2260,7 @@ version = "0.1.0"
 dependencies = [
  "bytes 1.2.1",
  "chrono",
- "chrono-tz",
+ "chrono-tz 0.6.3",
  "criterion",
  "lalrpop",
  "lalrpop-util",
@@ -4207,6 +4268,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "abb12e687cfb44aa40f41fc3978ef76448f9b6038cad6aef4259d3c095a2382e"
 dependencies = [
  "cfg-if",
+ "serde",
 ]
 
 [[package]]
@@ -4265,6 +4327,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f76fb2e2c0c7192e18719d321c9a148f7625c4dcbe3df5f4c19e685e4c286f6c"
 dependencies = [
  "cc",
+]
+
+[[package]]
+name = "lz4"
+version = "1.24.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7e9e2dd86df36ce760a60f6ff6ad526f7ba1f14ba0356f8254fb6905e6494df1"
+dependencies = [
+ "libc",
+ "lz4-sys",
+]
+
+[[package]]
+name = "lz4-sys"
+version = "1.9.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "57d27b317e207b10f69f5e75494119e391a96f48861ae870d1da6edac98ca900"
+dependencies = [
+ "cc",
+ "libc",
 ]
 
 [[package]]
@@ -8673,6 +8755,7 @@ dependencies = [
  "chrono",
  "cidr-utils",
  "clap 3.2.21",
+ "clickhouse-rs",
  "codecs",
  "colored",
  "console-subscriber",
@@ -8897,7 +8980,7 @@ dependencies = [
  "async-stream",
  "bytes 1.2.1",
  "chrono",
- "chrono-tz",
+ "chrono-tz 0.6.3",
  "crossbeam-utils",
  "derivative",
  "futures 0.3.24",
@@ -8923,7 +9006,7 @@ name = "vector-config"
 version = "0.1.0"
 dependencies = [
  "chrono",
- "chrono-tz",
+ "chrono-tz 0.6.3",
  "encoding_rs",
  "indexmap",
  "inventory",
@@ -9175,7 +9258,7 @@ dependencies = [
  "cbc",
  "cfb-mode",
  "chrono",
- "chrono-tz",
+ "chrono-tz 0.6.3",
  "cidr-utils",
  "criterion",
  "csv",
@@ -9224,7 +9307,7 @@ version = "0.1.0"
 dependencies = [
  "ansi_term",
  "chrono",
- "chrono-tz",
+ "chrono-tz 0.6.3",
  "clap 3.2.21",
  "enrichment",
  "glob",

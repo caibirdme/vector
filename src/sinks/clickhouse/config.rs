@@ -35,6 +35,10 @@ pub struct ClickhouseConfig {
     #[serde(default)]
     pub skip_unknown_fields: bool,
 
+    /// Sets `use_native_protocol`, allowing to use clickhouse native protocol rather than http protocol(default)
+    #[serde(default)]
+    pub use_native_protocol: bool,
+
     #[configurable(derived)]
     #[serde(default = "Compression::gzip_default")]
     pub compression: Compression,
@@ -74,9 +78,11 @@ impl_generate_config_from_default!(ClickhouseConfig);
 #[async_trait::async_trait]
 impl SinkConfig for ClickhouseConfig {
     async fn build(&self, cx: SinkContext) -> crate::Result<(VectorSink, Healthcheck)> {
-        // later we can build different sink(http, native) here
-        // according to the clickhouseConfig
-        build_http_sink(self, cx).await
+        if self.use_native_protocol {
+            build_http_sink(self, cx).await
+        } else {
+            build_native_sink(self, cx).await
+        }
     }
 
     fn input(&self) -> Input {
