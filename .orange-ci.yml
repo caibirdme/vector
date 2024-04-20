@@ -1,5 +1,5 @@
 feat-oci:
-  tag_push:
+  push:
     - docker:
         image: mirrors.tencent.com/ronaldoliu/camp-oci-base:v2024042022
       services:
@@ -8,3 +8,5 @@ feat-oci:
       stages:
         - name: build
           script: make build-x86_64-unknown-linux-musl
+        - name: echo
+          script: echo "hello world"
