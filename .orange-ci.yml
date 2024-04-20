@@ -1,0 +1,10 @@
+feat-oci:
+  tag_push:
+    - docker:
+        image: mirrors.tencent.com/ronaldoliu/camp-oci-base:v2024042022
+      services:
+        - docker-with-cache
+      imports: https://git.woa.com/ronaldoliu/camp-oci-secret/blob/master/secret.yml
+      stages:
+        - name: build
+          script: make build-x86_64-unknown-linux-musl
